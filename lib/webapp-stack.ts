@@ -7,10 +7,8 @@ import * as cloudfront from '@aws-cdk/aws-cloudfront';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as s3deploy from '@aws-cdk/aws-s3-deployment';
 import * as origins from '@aws-cdk/aws-cloudfront-origins';
-import { ApiGatewayToLambda } from '@aws-solutions-constructs/aws-apigateway-lambda';
 import * as lambda from '@aws-cdk/aws-lambda';
 import { IMonitoring } from './monitoring-stack';
-import { StaticWebsiteConfig } from './static-website-config';
 
 export interface WebAppStackProps extends cdk.StackProps {
   /**
