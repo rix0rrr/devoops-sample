@@ -846,6 +846,20 @@
     "@aws-solutions-constructs/core" "1.74.0"
     constructs "^3.2.0"
 
+"@aws-solutions-constructs/aws-cloudfront-apigateway@1.74.0":
+  version "1.74.0"
+  resolved "https://registry.yarnpkg.com/@aws-solutions-constructs/aws-cloudfront-apigateway/-/aws-cloudfront-apigateway-1.74.0.tgz#1f4285e0388c3effb070e2b7c23921f53bdb7b30"
+  integrity sha512-qduMa1+w8c2EAvHkGs6oMiOoYzg7egRyDooD8YyclAVVOXZysvxhy5QKx+EWfMi+70EG1LCCstZBoJl6g0geAQ==
+  dependencies:
+    "@aws-cdk/aws-apigateway" "1.74.0"
+    "@aws-cdk/aws-cloudfront" "1.74.0"
+    "@aws-cdk/aws-lambda" "1.74.0"
+    "@aws-cdk/aws-logs" "1.74.0"
+    "@aws-cdk/aws-s3" "1.74.0"
+    "@aws-cdk/core" "1.74.0"
+    "@aws-solutions-constructs/core" "1.74.0"
+    constructs "^3.2.0"
+
 "@aws-solutions-constructs/core@1.74.0":
   version "1.74.0"
   resolved "https://registry.yarnpkg.com/@aws-solutions-constructs/core/-/core-1.74.0.tgz#7c68debc46de994f71c2ee400c2c4fbf2ad8021f"
@@ -1728,7 +1742,7 @@ aws-cdk@1.74.0:
     wrap-ansi "^7.0.0"
     yargs "^16.1.1"
 
-aws-sdk@^2.792.0:
+aws-sdk@^2.792.0, aws-sdk@^2.802.0:
   version "2.802.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.802.0.tgz#7215be2437c196f1b0b39a10feffdc1d1b980a62"
   integrity sha512-PfjBr5Ag4PdcEYPrfMclVWk85kFSJNe7qllZBE8RhYNu+K+Z2pveKfYkC5mqYoKEYIQyI9by9N47F+Tqm1GXtg==

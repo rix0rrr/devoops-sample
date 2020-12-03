@@ -6,7 +6,7 @@ export interface IMonitoring {
   addGraphs(title: string, ...widgets: cloudwatch.IWidget[]): void;
 }
 
-export class DashboardStack extends cdk.Stack implements IMonitoring {
+export class MonitoringStack extends cdk.Stack implements IMonitoring {
   private dashboard: cloudwatch.Dashboard;
 
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {

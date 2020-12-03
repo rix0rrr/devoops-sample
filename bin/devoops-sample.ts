@@ -7,15 +7,13 @@ import { DevoopsStage } from '../lib/devoops-stage';
 const app = new cdk.App();
 
 // Directly deploy stacks to local development environments
-if (process.env.MY_DOMAIN_NAME) {
-  new DevoopsStage(app, 'Local', {
-    env: {
-      account: process.env.CDK_DEFAULT_ACCOUNT,
-      region: process.env.CDK_DEFAULT_REGION,
-    },
-    domainName: process.env.MY_DOMAIN_NAME,
-  });
-}
+new DevoopsStage(app, 'Local', {
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION,
+  },
+  domainName: process.env.MY_DOMAIN_NAME,
+});
 
 // The pipeline stack is deployed to the shared services account
 new PipelineStack(app, 'SharedPipeline', {
