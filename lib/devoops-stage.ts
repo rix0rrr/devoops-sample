@@ -1,5 +1,5 @@
 import { Stage, Construct, StageProps } from '@aws-cdk/core';
-import { DatabaseStack } from '../lib/database-stack';
+import { StatefulStack } from '../lib/stateful-stack';
 import { MonitoringStack } from './monitoring-stack';
 import { WebAppStack } from './webapp-stack';
 
@@ -18,7 +18,7 @@ export class DevoopsStage extends Stage {
 
     const monitoring = new MonitoringStack(this, 'Dashboard');
 
-    const db = new DatabaseStack(this, 'Database', {
+    const db = new StatefulStack(this, 'Database', {
       terminationProtection: true,
       domainName: props.domainName,
       monitoring,
@@ -26,8 +26,8 @@ export class DevoopsStage extends Stage {
 
     new WebAppStack(this, 'App', {
       table: db.table,
-      domainName: props.domainName,
       certificate: db.certificate,
+      domainName: props.domainName,
       monitoring,
     });
   }

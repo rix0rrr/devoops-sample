@@ -5,25 +5,28 @@ import * as certmgr from '@aws-cdk/aws-certificatemanager';
 import * as cdk from '@aws-cdk/core';
 import { IMonitoring } from './monitoring-stack';
 
-export interface DatabaseStackProps extends cdk.StackProps {
+export interface StatefulStackProps extends cdk.StackProps {
+  /**
+   * Where to add metrics
+   */
+  readonly monitoring: IMonitoring;
+
   /**
    * Domain name to create certificate for
    *
    * @default - If not given, a certificate will not be created.
    */
   readonly domainName?: string;
-
-  /**
-   * Where to add metrics
-   */
-  readonly monitoring: IMonitoring;
 }
 
-export class DatabaseStack extends cdk.Stack {
-  public table: dynamodb.Table;
-  public certificate?: certmgr.ICertificate;
+/**
+ * Stack with stateful resources
+ */
+export class StatefulStack extends cdk.Stack {
+  public readonly table: dynamodb.Table;
+  public readonly certificate?: certmgr.ICertificate;
 
-  constructor(scope: cdk.Construct, id: string, props: DatabaseStackProps) {
+  constructor(scope: cdk.Construct, id: string, props: StatefulStackProps) {
     super(scope, id, props);
 
     this.table = new dynamodb.Table(this, 'Table', {

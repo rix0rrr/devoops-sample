@@ -19,12 +19,16 @@ export interface WebAppStackProps extends cdk.StackProps {
   /**
    * Domain name for the CloudFront distribution
    *
+   * (Requires 'certificate' to be set)
+   *
    * @default - Automatically generated domain name under CloudFront domain
    */
   readonly domainName?: string;
 
   /**
    * Certificate for the CloudFront distribution
+   *
+   * (Requires 'domainName' to be set)
    *
    * @default - Automatically generated domain name under CloudFront domain
    */
@@ -54,8 +58,11 @@ export class WebAppStack extends cdk.Stack {
       timeout: cdk.Duration.seconds(10),
     });
 
+    props.table.grantReadWriteData(func);
+
     const apiGateway = new apigateway.LambdaRestApi(this, 'Gateway', {
       handler: func,
+      endpointTypes: [apigateway.EndpointType.REGIONAL],
     });
 
     // S3 bucket to hold the website with a CloudFront distribution

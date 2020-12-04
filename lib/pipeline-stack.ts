@@ -30,26 +30,17 @@ export class PipelineStack extends Stack {
     // Environment variables are *NOT* used here.
 
     pipeline.addApplicationStage(new DevoopsStage(this, 'Beta', {
-      env: {
-        account: '01234567891', // Beta Account
-        region: 'us-east-1',
-      },
+      env: { account: '01234567891' },  // Beta Account
       domainName: 'beta-site.example.com'
     }));
 
     pipeline.addApplicationStage(new DevoopsStage(this, 'Gamma', {
-      env: {
-        account: '01234567892', // Gamma Account
-        region: 'us-east-1',
-      },
+      env: { account: '01234567892' }, // Gamma Account
       domainName: 'gamma-site.example.com'
     }));
 
     pipeline.addApplicationStage(new DevoopsStage(this, 'Prod', {
-      env: {
-        account: '01234567893', // Prod Account
-        region: 'us-east-1',
-      },
+      env: { account: '01234567893' },  // Prod Account
       domainName: 'www.example.com'
     }));
 

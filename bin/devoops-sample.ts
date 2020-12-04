@@ -1,7 +1,5 @@
-import { DatabaseStack } from '../lib/database-stack';
 import { PipelineStack } from '../lib/pipeline-stack';
 import * as cdk from '@aws-cdk/core';
-import * as s3 from '@aws-cdk/aws-s3';
 import { DevoopsStage } from '../lib/devoops-stage';
 
 const app = new cdk.App();
@@ -22,3 +20,6 @@ new PipelineStack(app, 'SharedPipeline', {
     region: 'us-east-1'
   }
 });
+
+
+
